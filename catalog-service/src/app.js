@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Health check sin autenticación
-app.get('/health', (req, res) => {
+app.get('/api/catalog/health', (req, res) => {
   res.json({
     success: true,
     message: 'Catalog Service is running',
@@ -18,7 +18,7 @@ app.get('/health', (req, res) => {
 });
 
 // Rutas
-app.use('/books', bookRoutes);
+app.use('/api/catalog/books', bookRoutes);
 
 // Ruta no encontrada
 app.use((req, res) => {

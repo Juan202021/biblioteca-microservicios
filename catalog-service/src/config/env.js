@@ -16,7 +16,7 @@ const missingEnvVars = requiredEnvVars.filter(envVar => !process.env[envVar]);
 if (missingEnvVars.length > 0) {
   throw new Error(
     `Missing required environment variables: ${missingEnvVars.join(', ')}\n` +
-    `Please check your .env file or create one from .env.example`
+    `Please check your .env file and ensure all required variables are set.`
   );
 }
 
