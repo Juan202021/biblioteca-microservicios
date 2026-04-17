@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express from 'express';
 import bookRoutes from './routes/book.routes.js';
 import { errorMiddleware } from './middlewares/error.middleware.js';
@@ -5,6 +6,11 @@ import { errorMiddleware } from './middlewares/error.middleware.js';
 const app = express();
 
 // Middlewares globales
+app.use(cors({
+  origin: 'http://localhost:4173',
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
